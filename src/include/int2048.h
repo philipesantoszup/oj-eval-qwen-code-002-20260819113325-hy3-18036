@@ -81,6 +81,13 @@ public:
   friend bool operator>(const int2048 &, const int2048 &);
   friend bool operator<=(const int2048 &, const int2048 &);
   friend bool operator>=(const int2048 &, const int2048 &);
+
+private:
+  std::vector<unsigned int> digs; // magnitude, little-endian, each in [0, BASE)
+  bool neg;                      // sign: true means negative
+
+  void set_from_string(const std::string &);
+  void normalize();
 };
 } // namespace sjtu
 
